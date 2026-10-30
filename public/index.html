@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WhatsApp Clone</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Login screen -->
+  <div id="login">
+    <form id="login-form" class="login-card">
+      <div class="logo">💬</div>
+      <h2>WhatsApp Clone</h2>
+      <p>Apna naam likho aur chat shuru karo</p>
+      <input id="name-input" placeholder="Aapka naam" maxlength="20" autocomplete="off" />
+      <button>Chat shuru karo</button>
+    </form>
+  </div>
+
+  <div class="app">
+    <!-- Left side: chat list -->
+    <aside class="sidebar">
+      <header class="side-header">
+        <div class="avatar" id="my-avatar">?</div>
+        <span id="my-name">Me</span>
+      </header>
+      <div class="search"><input placeholder="Search or start new chat" /></div>
+      <ul id="chat-list" class="chat-list"></ul>
+    </aside>
+
+    <!-- Right side: open chat -->
+    <main class="chat">
+      <header class="chat-header">
+        <div class="avatar" id="chat-avatar">👥</div>
+        <div>
+          <div id="chat-name" class="chat-name">Dosti Group 🔥</div>
+          <div id="chat-status" class="chat-status">sab log</div>
+        </div>
+      </header>
+
+      <div id="messages" class="messages"></div>
+
+      <form id="send-form" class="send-bar">
+        <button type="button" id="emoji-btn" class="icon-btn">😊</button>
+        <div id="emoji-panel" class="emoji-panel hidden"></div>
+        <input id="msg-input" placeholder="Type a message" autocomplete="off" />
+        <button class="send-btn">➤</button>
+      </form>
+    </main>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

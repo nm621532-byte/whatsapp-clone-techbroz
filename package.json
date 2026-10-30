@@ -1,0 +1,23 @@
+{
+  "name": "whatsapp-clone",
+  "version": "1.0.0",
+  "description": "WhatsApp jaisa realtime chat app \u2014 Node.js + Express + Socket.IO (Tech Bro Z YouTube project)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "whatsapp-clone",
+    "chat-app",
+    "socket.io",
+    "nodejs",
+    "express",
+    "realtime"
+  ],
+  "author": "Tech Bro Z (YouTube @techbrozdeveloper)",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.3.0",
+    "socket.io": "^4.8.4"
+  }
+}
