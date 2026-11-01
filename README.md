@@ -4,7 +4,7 @@
 
 **English:** A WhatsApp-style realtime chat app built from scratch in the Tech Bro Z YouTube video. Open two browser windows, log in with two names, and chat live — with ticks, a typing indicator and an online-users list.
 
-🎬 **YouTube video (Hindi):** link soon — [@techbrozdeveloper](https://www.youtube.com/@techbrozdeveloper)
+🎬 **YouTube video (Hindi):** https://www.youtube.com/watch?v=LIn-ROf_fGc — [@techbrozdeveloper](https://www.youtube.com/@techbrozdeveloper)
 
 ![WhatsApp Clone screenshot](screenshots/app.png)
 
