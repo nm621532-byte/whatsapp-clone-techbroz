@@ -1,5 +1,15 @@
 # 💬 WhatsApp Clone — Node.js + Express + Socket.IO
 
+## ⬇️ Download
+
+**Latest release: [v1.0 — WhatsApp Clone](https://github.com/nm621532-byte/whatsapp-clone-techbroz/releases/tag/v1.0)**
+
+- 📦 **App download (zip):** [whatsapp-clone-techbroz-v1.0.zip](https://github.com/nm621532-byte/whatsapp-clone-techbroz/raw/main/release/whatsapp-clone-techbroz-v1.0.zip)
+- 🗂 Ya GitHub ka apna **Source code (zip)** — [Releases page](https://github.com/nm621532-byte/whatsapp-clone-techbroz/releases/tag/v1.0) pe neeche "Assets" mein
+- ▶️ Chalane ke liye: zip unzip karo → folder mein `npm install` → `npm start` → browser mein **http://localhost:3000**
+- 🌐 Bina install kiye try karo: https://whatsapp-clone-live.sites.tab.bot
+
+
 **Hindi / Hinglish:** Ye ek WhatsApp jaisa **realtime chat app** hai jo humne YouTube video mein bilkul shuru se, step by step banaya hai. Do browser windows kholo, do alag naam se login karo, aur messages turant (live) ek doosre tak pahunchenge — ticks, typing... aur online users ke saath.
 
 **English:** A WhatsApp-style realtime chat app built from scratch in the Tech Bro Z YouTube video. Open two browser windows, log in with two names, and chat live — with ticks, a typing indicator and an online-users list.
