@@ -4,6 +4,8 @@
 
 **English:** A WhatsApp-style realtime chat app built from scratch in the Tech Bro Z YouTube video. Open two browser windows, log in with two names, and chat live — with ticks, a typing indicator and an online-users list.
 
+🌐 **LIVE demo — phone pe kholo aur chat karo:** https://whatsapp-clone-live.sites.tab.bot
+
 🎬 **YouTube video (Hindi):** https://www.youtube.com/watch?v=LIn-ROf_fGc — [@techbrozdeveloper](https://www.youtube.com/@techbrozdeveloper)
 
 ![WhatsApp Clone screenshot](screenshots/app.png)
@@ -12,13 +14,15 @@
 
 ## ✨ Features
 
-- 🔐 Login with your name + auto avatar (naam likho, chat shuru)
+- 🔐 Login with name + PIN (pehli baar = naya account) + auto avatar; reload pe login yaad rehta hai (secure session token)
+- 📱 Phone-friendly: mobile pe WhatsApp jaisa — pehle chat list, tap karo to chat, ← se wapas
 - 👥 Group chat ("Dosti Group 🔥") — sabko ek saath message
 - 🔒 Private chat — sirf ek dost ke saath (har user ka apna room)
-- 🟢 Online users list (kaun abhi online hai)
+- 🟢 Online users + sab registered users (offline dost ko bhi message karo, wo aate hi padh lega)
+- 🔎 Search chats
 - ✍️ "typing..." indicator
 - ✓ ✓✓ Ticks — sent, delivered aur **blue (read)**, bilkul WhatsApp jaise
-- 💾 Messages save hote hain (`data/messages.json`) — server restart ke baad bhi chat wapas
+- 💾 Messages save hote hain (`data/messages.json`, ya `DATA_DIR` env ka folder) — server restart ke baad bhi chat wapas
 - 😀 Emoji picker
 
 ## 🛠 Tech Stack
@@ -56,6 +60,17 @@ Terminal mein dikhega: `Server chal raha hai: http://localhost:3000`
 
 > Git nahi hai? GitHub page pe green **Code** button → **Download ZIP** dabao, unzip karo, phir step 2 se shuru karo.
 
+### ✅ Test (2 users + security)
+
+```bash
+npm start                     # ek terminal mein server
+cd test && npm install        # doosre terminal mein (socket.io-client)
+pip install playwright && playwright install chromium
+python3 e2e.py http://localhost:3000
+```
+
+Ye 2 phone-size browsers khol ke test karta hai: signup/login, group + private message, typing, ✓ ✓✓ blue ticks, reload ke baad history, teesra user private chat nahi dekh sakta, galat PIN lock, XSS, spam limit, aur raw socket tricks.
+
 ### 🐞 Common errors (aur fix)
 
 - **`Cannot GET /`** → server `public` folder serve nahi kar raha; `server.js` mein `express.static` line check karo.
@@ -72,7 +87,8 @@ whatsapp-clone-techbroz/
 ├── package.json       # project info + dependencies (express, socket.io)
 ├── package-lock.json  # exact dependency versions
 ├── data/
-│   └── messages.json  # saved chat messages (starts empty: [])
+│   └── messages.json  # saved chat messages (starts empty: []); accounts.json / sessions.json yahin bante hain (GitHub pe nahi jaate)
+├── test/              # e2e.py (2-user browser test) + attack.js (security test)
 ├── public/            # frontend (browser mein chalta hai)
 │   ├── index.html     # login screen + chat layout
 │   ├── style.css      # WhatsApp jaisa design
@@ -88,7 +104,7 @@ Server = post office, WebSocket = phone call. Browser ek baar server se **connec
 ## 🏠 Homework
 
 - Image bhejne ka feature jodo 📷
-- App ko deploy karo (Render / Railway) aur doston ko link bhejo
+- App ko deploy karo (Render / Railway) aur doston ko link bhejo — live example: https://whatsapp-clone-live.sites.tab.bot
 - Comment mein batao kya banaya! 👇
 
 ---

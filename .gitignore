@@ -7,3 +7,5 @@ Thumbs.db
 
 # users ke PIN hash (kabhi GitHub pe mat daalo)
 data/accounts.json
+data/sessions.json
+data/*.tmp

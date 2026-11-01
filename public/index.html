@@ -2,40 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WhatsApp Clone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#008069" />
+  <title>WhatsApp Clone — Tech Bro Z</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <!-- Login screen -->
-  <div id="login">
+  <div id="login" class="hidden">
     <form id="login-form" class="login-card">
       <div class="logo">💬</div>
       <h2>WhatsApp Clone</h2>
-      <p>Apna naam likho aur chat shuru karo</p>
-      <input id="name-input" placeholder="Aapka naam" maxlength="20" autocomplete="off" />
-      <input id="pin-input" type="password" inputmode="numeric" placeholder="PIN (pehli baar jo rakhoge wahi)" minlength="4" maxlength="30" autocomplete="current-password" />
+      <p>Naam + PIN likho. Pehli baar ho to yahi naam aur PIN tumhara account ban jayega.</p>
+      <input id="name-input" placeholder="Aapka naam" maxlength="20" autocomplete="username" autocapitalize="words" />
+      <input id="pin-input" type="password" inputmode="numeric" placeholder="PIN (kam se kam 4 digit)" minlength="4" maxlength="30" autocomplete="current-password" />
       <p id="login-error" class="login-error"></p>
-      <button>Chat shuru karo</button>
+      <button id="login-btn">Chat shuru karo</button>
+      <small class="credit">Made by Tech Bro Z · YouTube @techbrozdeveloper</small>
     </form>
   </div>
 
-  <div class="app">
+  <div id="loading" class="loading">Connect ho raha hai…</div>
+
+  <div class="app" id="app">
     <!-- Left side: chat list -->
     <aside class="sidebar">
       <header class="side-header">
         <div class="avatar" id="my-avatar">?</div>
-        <span id="my-name">Me</span>
+        <span id="my-name" class="my-name">Me</span>
+        <button type="button" id="logout-btn" class="header-btn" title="Logout">Logout</button>
       </header>
-      <div class="search"><input placeholder="Search or start new chat" /></div>
+      <div class="search"><input id="search-input" placeholder="Search or start new chat" autocomplete="off" /></div>
       <ul id="chat-list" class="chat-list"></ul>
     </aside>
 
     <!-- Right side: open chat -->
     <main class="chat">
       <header class="chat-header">
+        <button type="button" id="back-btn" class="back-btn" aria-label="Back">←</button>
         <div class="avatar" id="chat-avatar">👥</div>
-        <div>
+        <div class="chat-title">
           <div id="chat-name" class="chat-name">Dosti Group 🔥</div>
           <div id="chat-status" class="chat-status">sab log</div>
         </div>
@@ -44,10 +50,10 @@
       <div id="messages" class="messages"></div>
 
       <form id="send-form" class="send-bar">
-        <button type="button" id="emoji-btn" class="icon-btn">😊</button>
+        <button type="button" id="emoji-btn" class="icon-btn" aria-label="Emoji">😊</button>
         <div id="emoji-panel" class="emoji-panel hidden"></div>
-        <input id="msg-input" placeholder="Type a message" autocomplete="off" />
-        <button class="send-btn">➤</button>
+        <input id="msg-input" placeholder="Type a message" autocomplete="off" maxlength="1000" enterkeyhint="send" />
+        <button class="send-btn" aria-label="Send">➤</button>
       </form>
     </main>
   </div>
