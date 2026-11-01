@@ -14,13 +14,21 @@ const $ = (sel) => document.querySelector(sel);
 $('#login-form').addEventListener('submit', (e) => {
   e.preventDefault();
   const name = $('#name-input').value.trim();
+  const pin = $('#pin-input').value;
   if (!name) return;
-  me = name;
-  socket.emit('join', me);
-  $('#login').style.display = 'none';
-  $('#my-name').textContent = me;
-  setAvatar($('#my-avatar'), me);
-  openChat('group');
+  $('#login-error').textContent = '';
+  // naam + PIN server check karega; sahi hua tabhi chat khulegi
+  socket.emit('join', { name, pin }, (res) => {
+    if (!res || !res.ok) {
+      $('#login-error').textContent = (res && res.error) || 'Login nahi hua';
+      return;
+    }
+    me = res.name;
+    $('#login').style.display = 'none';
+    $('#my-name').textContent = me;
+    setAvatar($('#my-avatar'), me);
+    openChat('group');
+  });
 });
 
 // ---- Helpers ----
@@ -75,12 +83,14 @@ function renderMessages() {
 
     let html = '';
     if (!mine && activeChat === 'group') {
-      html += `<div class="sender" style="color:${colorFor(msg.from)}">${msg.from}</div>`;
+      html += `<div class="sender" style="color:${colorFor(msg.from)}"></div>`;
     }
     html += `<div class="text"></div>`;
     html += `<div class="meta">${formatTime(msg.time)}${mine ? ticks(msg.status) : ''}</div>`;
     div.innerHTML = html;
     div.querySelector('.text').textContent = msg.text; // safe: HTML nahi chalega
+    const sender = div.querySelector('.sender');
+    if (sender) sender.textContent = msg.from; // naam bhi text, HTML nahi
     box.appendChild(div);
   }
   box.scrollTop = box.scrollHeight;

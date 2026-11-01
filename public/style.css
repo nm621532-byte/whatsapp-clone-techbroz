@@ -220,3 +220,10 @@ body {
   font-size: 16px;
   cursor: pointer;
 }
+
+.login-error {
+  color: #e74c3c;
+  font-size: 14px;
+  min-height: 18px;
+  margin: 0;
+}
